@@ -36,14 +36,6 @@ rand(3..7).times do
 end
 end
 
-u = User.new(
-  name: 'Jessica Palay',
-  email: 'jessica.c.palay@gmail.com',
-  password: 'bloccit1',
-  password_confirmation: 'bloccit1')
-u.skip_confirmation!
-u.save
-u.update_attribute(:role, 'admin')
 
 u = User.new(
   name: 'Admin User',
