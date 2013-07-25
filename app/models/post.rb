@@ -2,7 +2,8 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
   belongs_to :topic
-  attr_accessible :body, :title, :topic
+  attr_accessible :body, :title, :topic, :images
+  mount_uploader :images, ImagesUploader
 
   default_scope order('created_at DESC')
 
