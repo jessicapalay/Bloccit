@@ -9,7 +9,8 @@ class Post < ActiveRecord::Base
   mount_uploader :images, ImagesUploader
 
   default_scope order('rank DESC')
-
+  scope :public, lambda { |user| user ? scoped : joins(:topic).where('topics.public = true') }
+  
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
   validates :topic, presence: true
